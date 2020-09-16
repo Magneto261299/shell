@@ -30,8 +30,7 @@ RUN apt-get update && apt-get install -y software-properties-common && \
     # miscellaneous helpers
     megatools mediainfo && \
     # clean up the container "layer", after we are done
-    rm -rf /var/lib/apt/lists /var/cache/apt/archives /tmp && \
-    apt-get purge -y software-properties-common
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives /tmp
 
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
@@ -40,7 +39,7 @@ ENV LC_ALL en_US.UTF-8
 
 # rclone ,gclone and fclone
 RUN aria2c https://rclone.org/install.sh && bash install.sh && \
-    aria2c https://git.io/gclone.sh && bash gclone.sh \
+    aria2c https://git.io/gclone.sh && bash gclone.sh && \
     aria2c https://github.com/mawaya/rclone/releases/download/fclone-v0.4.1/fclone-v0.4.1-linux-amd64.zip && \
     unzip fclone-v0.4.1-linux-amd64.zip && mv fclone /usr/local/bin && chmod +x /usr/local/bin/fclone
 
