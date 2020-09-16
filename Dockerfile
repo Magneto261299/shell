@@ -45,7 +45,7 @@ RUN aria2c https://rclone.org/install.sh && bash install.sh && \
     unzip fclone-v0.4.1-linux-amd64.zip && mv fclone /usr/local/bin && chmod +x /usr/local/bin/fclone
 
 #drive downloader
-RUN aria2c https://github.com/jaskaranSM/drive-dl-go/releases/download/1.1/drive-dl-go-linux-64bit.zip &&
+RUN aria2c https://github.com/jaskaranSM/drive-dl-go/releases/download/1.1/drive-dl-go-linux-64bit.zip && \
     unzip drive-dl-go-linux-64bit.zip && mv linux-64bit/drivedl /usr/local/bin/ && chmod +x /usr/local/bin/drivedl
 
 #ngrok
