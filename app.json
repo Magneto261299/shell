@@ -1,0 +1,27 @@
+{
+    "name": "Shell-Bot",
+    "description": "Telegram bot for executing shell commands",
+    "keywords": [
+      "telegram",
+      "bot",
+      "shell"
+    ],
+    "repository": "https://github.com/magneto261290/shell-bot",
+    "website": "https://github.com/magneto261290/shell-bot",
+    "success_url": "https://github.com/magneto261290/shell-bot/blob/master/README.md",
+    "stack": "container",
+    "env": {
+      "BOT_TOKEN": {
+        "description": "Get your bot token by talking to @Botfather",
+        "required": true
+    },
+      "OWNER_ID": {
+        "description": "Your telegram ID (not username)",
+        "required": true
+      },
+      "RCLONE_CONFIG_BASE64": {
+        "description": "Your Rclone config encoded using Base64",
+        "required": false
+      }
+    }
+}
