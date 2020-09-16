@@ -41,7 +41,7 @@ ENV LC_ALL en_US.UTF-8
 RUN curl https://rclone.org/install.sh | bash && \
     aria2c https://git.io/gclone.sh && bash gclone.sh && \
     aria2c https://github.com/mawaya/rclone/releases/download/fclone-v0.4.1/fclone-v0.4.1-linux-amd64.zip && \
-    unzip fclone-v0.4.1-linux-amd64.zip && mv fclone /usr/bin/ && chmod +x /usr/bin/fclone
+    unzip fclone-v0.4.1-linux-amd64.zip && mv fclone-v0.4.1-linux-amd64/fclone /usr/bin/ && chmod +x /usr/bin/fclone
 
 #drive downloader
 RUN aria2c https://github.com/jaskaranSM/drive-dl-go/releases/download/1.1/drive-dl-go-linux-64bit.zip && \
