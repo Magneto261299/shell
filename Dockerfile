@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install -y software-properties-common && \
     # install encoding tools
     ffmpeg mediainfo rclone \
     # miscellaneous
-    neofetch python3-dev python3 python3-pip git bash build-essential nodejs npm ruby python-minimal pyton-pip locales \
+    neofetch python3-dev python3 python3-pip git bash build-essential nodejs npm ruby python-minimal python-pip locales python-lxml \
     # install extraction tools
     p7zip-full p7zip-rar rar unrar zip unzip \
     # miscellaneous helpers
