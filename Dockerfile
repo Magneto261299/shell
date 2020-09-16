@@ -30,7 +30,7 @@ RUN apt-get update && apt-get install -y software-properties-common && \
     # miscellaneous helpers
     megatools mediainfo && \
     # clean up the container "layer", after we are done
-    rm -rf /var/lib/apt/lists /var/cache/apt/archives /tmp
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
