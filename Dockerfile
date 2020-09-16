@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y software-properties-common && \
     # install coreutils
     coreutils aria2 jq pv gcc g++ \
     # install encoding tools
-    ffmpeg mediainfo rclone \
+    ffmpeg mediainfo \
     # miscellaneous
     neofetch python3-dev python3 python3-pip git bash build-essential nodejs npm ruby python-minimal python-pip locales python-lxml \
     # install extraction tools
