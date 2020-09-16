@@ -38,17 +38,17 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 # rclone ,gclone and fclone
-RUN aria2c https://rclone.org/install.sh && bash install.sh && \
+RUN curl https://rclone.org/install.sh | bash && \
     aria2c https://git.io/gclone.sh && bash gclone.sh && \
     aria2c https://github.com/mawaya/rclone/releases/download/fclone-v0.4.1/fclone-v0.4.1-linux-amd64.zip && \
-    unzip fclone-v0.4.1-linux-amd64.zip && mv fclone /usr/local/bin && chmod +x /usr/local/bin/fclone
+    unzip fclone-v0.4.1-linux-amd64.zip && mv fclone /usr/bin/ && chmod +x /usr/bin/fclone
 
 #drive downloader
 RUN aria2c https://github.com/jaskaranSM/drive-dl-go/releases/download/1.1/drive-dl-go-linux-64bit.zip && \
-    unzip drive-dl-go-linux-64bit.zip && mv linux-64bit/drivedl /usr/local/bin/ && chmod +x /usr/local/bin/drivedl
+    unzip drive-dl-go-linux-64bit.zip && mv linux-64bit/drivedl /usr/bin/ && chmod +x /usr/bin/drivedl
 
 #ngrok
-RUN aria2c https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip && unzip ngrok-stable-linux-amd64.zip && mv ngrok /usr/local/bin/ && chmod +x /usr/bin/ngrok
+RUN aria2c https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip && unzip ngrok-stable-linux-amd64.zip && mv ngrok /usr/bin/ && chmod +x /usr/bin/ngrok
 
 #install rmega
 RUN gem install rmega
