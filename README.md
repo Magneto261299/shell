@@ -1,5 +1,9 @@
 # shell-bot
 
+# How to deploy?
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 This is a fully functional shellrunner [Telegram bot][]. You tell it a
 command, it executes it and posts the live output. You can send input to the
 command by replying to the output messages.
