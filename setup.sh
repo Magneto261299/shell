@@ -11,7 +11,7 @@ fi
 
 if [[ -n $CREDENTIALS_URL ]]; then
 	echo "credentials.jso detected"
-    aria2c $CREDENTIALS_URL
+    aria2c $CREDENTIALS_URL && drivedl set /usr/src/app/credentials.json
 fi
 
 if [[ -n $TOKEN_PICKLE_URL ]]; then
