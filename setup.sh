@@ -10,18 +10,18 @@ if [[ -n $BOT_TOKEN && -n $OWNER_ID ]]; then
 fi
 
 if [[ -n $CREDENTIALS_LINK ]]; then
-	echo "credentials.jso detected"
+	echo "credentials.json detected"
     aria2c $CREDENTIALS_LINK && drivedl set /usr/src/app/credentials.json
 fi
 
-if [[ -n $TOKEN_PICKLE_URL ]]; then
-	echo "credentials.jso detected"
-    aria2c $TOKEN_PICKLE_URL
+if [[ -n $TOKEN_PICKLE_LINK ]]; then
+	echo "drive token detected"
+    aria2c $TOKEN_PICKLE_LINK
 fi
 
 if [[ -n $ACCOUNTS_FOLDER_LINK ]]; then
-	echo "credentials.jso detected"
-    aria2c $ACCOUNTS_FOLDER_LINK
+	echo "accounts.zip detected"
+    aria2c $ACCOUNTS_FOLDER_LINK && mkdir accounts && unzip accounts.zip -d accounts
 fi
 
 echo "SETUP COMPLETED"
