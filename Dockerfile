@@ -41,11 +41,11 @@ ENV LC_ALL en_US.UTF-8
 RUN curl https://rclone.org/install.sh | bash && \
     aria2c https://git.io/gclone.sh && bash gclone.sh && \
     aria2c https://github.com/mawaya/rclone/releases/download/fclone-v0.4.1/fclone-v0.4.1-linux-amd64.zip && \
-    unzip fclone-v0.4.1-linux-amd64.zip && mv fclone-v0.4.1-linux-amd64/fclone /usr/bin/ && chmod +x /usr/bin/fclone
+    unzip fclone-v0.4.1-linux-amd64.zip && mv fclone-v0.4.1-linux-amd64/fclone /usr/bin/ && chmod +x /usr/bin/fclone && rm -r fclone-v0.4.1-linux-amd64
 
 #drive downloader
 RUN aria2c https://github.com/jaskaranSM/drive-dl-go/releases/download/1.1/drive-dl-go-linux-64bit.zip && \
-    unzip drive-dl-go-linux-64bit.zip && mv linux-64bit/drivedl /usr/bin/ && chmod +x /usr/bin/drivedl
+    unzip drive-dl-go-linux-64bit.zip && mv linux-64bit/drivedl /usr/bin/ && chmod +x /usr/bin/drivedl && rm -r linux-64bit
 
 #ngrok
 RUN aria2c https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip && unzip ngrok-stable-linux-amd64.zip && mv ngrok /usr/bin/ && chmod +x /usr/bin/ngrok
@@ -65,8 +65,7 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 
 # setup workdir
 
-RUN dpkg --add-architecture i386
-RUN apt-get update
-RUN apt-get -y dist-upgrade
+RUN dpkg --add-architecture i386 && apt-get update && apt-get -y dist-upgrade
+RUN bash setup.sh && rm *.zip
 
-CMD ["bash", "start.sh"]
+CMD ["node", "server"]
