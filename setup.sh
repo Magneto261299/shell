@@ -25,3 +25,5 @@ if [[ -n $ACCOUNTS_FOLDER_LINK ]]; then
 fi
 
 echo "SETUP COMPLETED"
+
+node server
