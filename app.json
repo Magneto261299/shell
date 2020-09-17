@@ -24,15 +24,15 @@
         "required": false
       },
       "CREDENTIALS_LINK": {
-        "description": "Send credentials.json to @directfilelinkbot and enter link here",
+        "description": "enter permanent download link(maybe from index) of your credentials.json",
         "required": false
       },
       "TOKEN_PICKLE_LINK": {
-        "description": "Send your token.pickle to @directfilelinkbot and enter link here",
+        "description": "enter permanent download link(maybe from index) of your token.pickle",
         "required": false
       },
       "ACCOUNTS_FOLDER_LINK": {
-        "description": "Send your accounts.zip to @directfilelinkbot and enter link here",
+        "description": "enter permanent download link(maybe from index) of your accounts.zip",
         "required": false
       }
     }
