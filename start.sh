@@ -21,7 +21,7 @@ fi
 
 if [[ -n $ACCOUNTS_FOLDER_LINK ]]; then
 	echo "accounts.zip detected"
-    aria2c $ACCOUNTS_FOLDER_LINK && mkdir accounts && unzip accounts.zip -d accounts
+    aria2c $ACCOUNTS_FOLDER_LINK && mkdir accounts && unzip accounts.zip -d accounts && rm *.zip
 fi
 
 echo "SETUP COMPLETED"
