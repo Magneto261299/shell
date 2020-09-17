@@ -9,9 +9,9 @@ if [[ -n $BOT_TOKEN && -n $OWNER_ID ]]; then
 	python3 config.py
 fi
 
-if [[ -n $CREDENTIALS_URL ]]; then
+if [[ -n $CREDENTIALS_LINK ]]; then
 	echo "credentials.jso detected"
-    aria2c $CREDENTIALS_URL && drivedl set /usr/src/app/credentials.json
+    aria2c $CREDENTIALS_LINK && drivedl set /usr/src/app/credentials.json
 fi
 
 if [[ -n $TOKEN_PICKLE_URL ]]; then
@@ -19,9 +19,9 @@ if [[ -n $TOKEN_PICKLE_URL ]]; then
     aria2c $TOKEN_PICKLE_URL
 fi
 
-if [[ -n $ACCOUNTS_URL ]]; then
+if [[ -n $ACCOUNTS_FOLDER_LINK ]]; then
 	echo "credentials.jso detected"
-    aria2c $ACCOUNTS_URL
+    aria2c $ACCOUNTS_FOLDER_LINK
 fi
 
 echo "SETUP COMPLETED"
