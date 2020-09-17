@@ -14,14 +14,9 @@ if [[ -n $CREDENTIALS_LINK ]]; then
     aria2c $CREDENTIALS_LINK && drivedl set /usr/src/app/credentials.json
 fi
 
-if [[ -n $TOKEN_PICKLE_LINK ]]; then
-	echo "drive token detected"
-    aria2c $TOKEN_PICKLE_LINK
-fi
-
 if [[ -n $ACCOUNTS_FOLDER_LINK ]]; then
 	echo "accounts.zip detected"
-    aria2c $ACCOUNTS_FOLDER_LINK && mkdir accounts && unzip accounts.zip -d accounts && rm *.zip
+    aria2c $ACCOUNTS_FOLDER_LINK && unzip accounts.zip -d accounts && rm *.zip
 fi
 
 echo "SETUP COMPLETED"
