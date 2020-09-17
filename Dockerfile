@@ -66,6 +66,5 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 # setup workdir
 
 RUN dpkg --add-architecture i386 && apt-get update && apt-get -y dist-upgrade
-RUN bash setup.sh && rm *.zip
 
-CMD ["node", "server"]
+CMD ["bash", "start.sh"]
