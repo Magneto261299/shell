@@ -30,6 +30,10 @@
       "ACCOUNTS_FOLDER_LINK": {
         "description": "enter permanent download link(maybe from index) of your accounts.zip",
         "required": false
+      },
+      "LANG": {
+        "description": "Setting the encoding to UTF-8 Dont touch this",
+        "value": "C.UTF-8"
       }
     }
 }
