@@ -32,10 +32,13 @@ RUN apt-get update && apt-get install -y software-properties-common && \
     # clean up the container "layer", after we are done
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
-RUN locale-gen en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
+ENV LANG C.UTF-8
+
+# we don't have an interactive xTerm
+ENV DEBIAN_FRONTEND noninteractive
+
+# sets the TimeZone, to be used inside the container
+ENV TZ Asia/Kolkata
 
 # rclone ,gclone and fclone
 RUN curl https://rclone.org/install.sh | bash && \
