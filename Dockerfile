@@ -22,15 +22,21 @@ RUN apt-get update && apt-get install -y software-properties-common && \
     # install coreutils
     coreutils aria2 jq pv gcc g++ \
     # install encoding tools
-    ffmpeg mediainfo \
+    mediainfo \
     # miscellaneous
-    neofetch python3-dev python3 python3-pip git bash build-essential nodejs npm ruby python-minimal python-pip locales python-lxml qbittorrent-nox \
+    neofetch python3-dev git bash build-essential nodejs npm ruby \
+    python-minimal locales python-lxml qbittorrent-nox nginx gettext-base xz-utils \
     # install extraction tools
     p7zip-full p7zip-rar rar unrar zip unzip \
     # miscellaneous helpers
     megatools mediainfo && \
     # clean up the container "layer", after we are done
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
+
+RUN wget https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-amd64-static.tar.xz && \
+    tar xvf ffmpeg*.xz && \
+    cd ffmpeg-*-static && \
+    mv "${PWD}/ffmpeg" "${PWD}/ffprobe" /usr/local/bin/
 
 ENV LANG C.UTF-8
 
@@ -70,4 +76,4 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 
 RUN dpkg --add-architecture i386 && apt-get update && apt-get -y dist-upgrade
 
-CMD ["bash", "start.sh"]
+CMD /bin/bash -c "envsubst '\$PORT' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf" && nginx -g 'daemon on;' &&  qbittorrent-nox -d --webui-port=8080 && cd /var/www/html/bot && bash start.sh
