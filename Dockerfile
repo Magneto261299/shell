@@ -1,4 +1,4 @@
-FROM python:3.8.5-slim-buster
+FROM python:3-slim-buster
 
 # Install all the required packages
 WORKDIR /usr/src/app
@@ -53,8 +53,8 @@ RUN curl https://rclone.org/install.sh | bash && \
     unzip fclone-v0.4.1-linux-amd64.zip && mv fclone-v0.4.1-linux-amd64/fclone /usr/bin/ && chmod +x /usr/bin/fclone && rm -r fclone-v0.4.1-linux-amd64
 
 #drive downloader
-RUN aria2c https://github.com/jaskaranSM/drive-dl-go/releases/download/1.1/drive-dl-go-linux-64bit.zip && \
-    unzip drive-dl-go-linux-64bit.zip && mv linux-64bit/drivedl /usr/bin/ && chmod +x /usr/bin/drivedl && rm -r linux-64bit
+RUN curl -L https://github.com/jaskaranSM/drivedlgo/releases/download/1.5/drivedlgo_1.5_Linux_x86_64.gz -o drivedl.gz && \
+    7z x drivedl.gz && mv drivedlgo /usr/bin/drivedl && chmod +x /usr/bin/drivedl && rm drivedl.gz && rm drivedlgo
 
 #ngrok
 RUN aria2c https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip && unzip ngrok-stable-linux-amd64.zip && mv ngrok /usr/bin/ && chmod +x /usr/bin/ngrok
