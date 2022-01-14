@@ -35,10 +35,10 @@ case $OSARCH in
         ;;
 esac
 
-wget -qO- https://api.github.com/repos/dogbutcat/gclone/releases/latest \
-| grep browser_download_url | grep "$BINTAG.zip" | cut -d '"' -f 4 \
-| wget --no-verbose -i- -O- 
-upzip -j "$grep 'gclone*.zip'" -d ${CLDBIN}
+Url=$(wget -qO- https://api.github.com/repos/dogbutcat/gclone/releases/latest \
+| grep browser_download_url | grep "$BINTAG.zip" | cut -d '"' -f 4)
+wget -nv ${url} -O "gclone.zip"
+unzip -jo gclone.zip -d "${CLDBIN}"
 chmod 0755 ${CLDBIN}
 
 gclone version
