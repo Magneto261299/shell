@@ -48,7 +48,7 @@ ENV TZ Asia/Kolkata
 
 # rclone ,gclone and fclone
 RUN curl https://rclone.org/install.sh | bash && \
-    aria2c https://git.io/gclone.sh && bash gclone.sh && \
+    aria2c https://raw.githubusercontent.com/anymeofu/shell/master/gclone.sh && bash gclone.sh && \
     aria2c https://github.com/mawaya/rclone/releases/download/fclone-v0.4.1/fclone-v0.4.1-linux-amd64.zip && \
     unzip fclone-v0.4.1-linux-amd64.zip && mv fclone-v0.4.1-linux-amd64/fclone /usr/bin/ && chmod +x /usr/bin/fclone && rm -r fclone-v0.4.1-linux-amd64
 
