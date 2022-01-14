@@ -46,6 +46,9 @@ ENV DEBIAN_FRONTEND noninteractive
 # sets the TimeZone, to be used inside the container
 ENV TZ Asia/Kolkata
 
+# install unzip
+RUN apt install unzip
+
 # rclone ,gclone and fclone
 RUN curl https://rclone.org/install.sh | bash && \
     aria2c https://raw.githubusercontent.com/anymeofu/shell/master/gclone.sh && bash gclone.sh && \
