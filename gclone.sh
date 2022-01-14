@@ -37,7 +37,7 @@ esac
 
 wget -qO- https://api.github.com/repos/dogbutcat/gclone/releases/latest \
 | grep browser_download_url | grep "$BINTAG" | grep .zip | cut -d '"' -f 4 \
-| wget --no-verbose -i- -O- | gzip -d -c -j > ${CLDBIN}
+| wget --no-verbose -i- -O- | unzip -j > ${CLDBIN}
 chmod 0755 ${CLDBIN}
 
 gclone version
