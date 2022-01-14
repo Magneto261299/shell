@@ -37,7 +37,7 @@ esac
 
 Url=$(wget -qO- https://api.github.com/repos/dogbutcat/gclone/releases/latest \
 | grep browser_download_url | grep "$BINTAG.zip" | cut -d '"' -f 4)
-wget -nv ${url} -O "gclone.zip"
+wget ${url} -O "gclone.zip"
 unzip -j "gclone*zip" "*/gclone" -d "${CLDBIN}"
 chmod 0755 ${CLDBIN}
 
