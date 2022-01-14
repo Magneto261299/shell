@@ -18,16 +18,16 @@ CLDBIN=/usr/bin/gclone
 OSARCH=$(uname -m)
 case $OSARCH in 
     x86_64)
-        BINTAG=Linux_x86_64
+        BINTAG=Linux-x86-64
         ;;
     i*86)
-        BINTAG=Linux_i386
+        BINTAG=Linux-i386
         ;;
     arm64)
-        BINTAG=Linux_arm64
+        BINTAG=Linux-arm64
         ;;
     arm*)
-        BINTAG=Linux_armv6
+        BINTAG=Linux-armv6
         ;;
     *)
         echo "unsupported OSARCH: $OSARCH"
