@@ -34,11 +34,14 @@ case $OSARCH in
         exit 1
         ;;
 esac
-TAGNAME=$(wget -qO- https://api.github.com/repos/dogbutcat/gclone/releases/latest | grep tag_name | cut -d '"' -f 4)
+ 
+TAGNAME=$(wget -qO- https://api.github.com/repos/dogbutcat/gclone/releases/latest \
+| grep tag_name | cut -d '"' -f 4)
 URL=$(wget -qO- https://api.github.com/repos/dogbutcat/gclone/releases/latest \
 | grep browser_download_url | grep "$BINTAG.zip" | cut -d '"' -f 4)
+ 
 wget -nv ${URL}
-unzip -j "gclone-$TAGNAME-$BINTAG.zip" "gclone-$TAGNAME-$BINTAG/gclone" -d "${CLDBIN}" && rm gclone-$TAGNAME-$BINTAG.zip
+unzip -j "gclone-$TAGNAME-$BINTAG.zip" "gclone-$TAGNAME-$BINTAG/gclone" -d "/usr/bin/" && rm gclone-$TAGNAME-$BINTAG.zip
 chmod 0755 ${CLDBIN}
  
 gclone version
