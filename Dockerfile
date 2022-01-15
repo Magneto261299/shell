@@ -52,7 +52,8 @@ RUN curl https://rclone.org/install.sh | bash && \
     unzip fclone-v0.4.1-linux-amd64.zip && mv fclone-v0.4.1-linux-amd64/fclone /usr/bin/ && chmod +x /usr/bin/fclone && rm -r fclone-v0.4.1-linux-amd64
 
 # gclone latest
-RUN aria2c https://raw.githubusercontent.com/anymeofu/shell/master/gclone.sh && bash gclone.sh
+RUN aria2c https://github.com/dogbutcat/gclone/releases/download/v1.57.0-mod1.4.0/gclone-v1.57.0-mod1.4.0-linux-amd64.zip && \
+    unzip gclone-v1.57.0-mod1.4.0-linux-amd64.zip && mv gclone-v1.57.0-mod1.4.0-linux-amd64/gclone /usr/bin && chmod +x /usr/bin/gclone && rm -r gclone-v1.57.0-mod1.4.0-linux-amd64
 
 #drive downloader
 RUN curl -L https://github.com/jaskaranSM/drivedlgo/releases/download/1.5/drivedlgo_1.5_Linux_x86_64.gz -o drivedl.gz && \
