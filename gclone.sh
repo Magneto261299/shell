@@ -11,8 +11,8 @@ if [[ $(id -u) -ne 0 ]]; then
     exit 1
 fi
 CLDBIN=/usr/bin/gclone
-BINTAG=linux-arm64
 OSARCH=$(uname -m)
+printenv OSARCH
 case $OSARCH in 
     x86_64)
         BINTAG=linux-amd64
@@ -31,7 +31,6 @@ case $OSARCH in
         exit 1
         ;;
 esac
-printenv OSARCH
 printenv BINTAG
 TAGNAME=$(wget -qO- https://api.github.com/repos/dogbutcat/gclone/releases/latest \ | grep tag_name | cut -d '"' -f 4)
 printenv TAGNAME
