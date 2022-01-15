@@ -2,7 +2,6 @@
 set -o errexit
 set -o pipefail
 set -o nounset
-fi
 CLDBIN=/usr/bin/gclone
 OSARCH=$(uname -m)
 printenv OSARCH
