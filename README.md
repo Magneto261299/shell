@@ -1,5 +1,19 @@
 # shell-bot
 
+# How to use this Bot For Cloning?
+
+1. Deploy app, If using **Gclone/Fclone** fill the env ``ACCOUNTS_FOLDER_LINK`` (the link must point to accounts.zip) and fill env ``RCLONE_CONFIG_BASE64`` for **Rclone**(service account path must be like ``accounts/1.json``, if want to use service account with rclone)
+2. Thats It ! now run ``/run gclone`` or ``/run rclone`` (or even fclone) and enjoy
+
+or
+
+1. Import Repo (private), If using **Rclone** add rclone config(rclone.conf) for rclone in ``.config/rclone`` and add Service Accounts in ``accounts`` folder to use for **Gclone/Fclone**
+2. Now deploy to heroku via this **Private repo**
+3. Thats It ! now run ``/run gclone`` or ``/run rclone`` (or even fclone) and enjoy
+
+Easy Detailed Tutorial here: https://telegra.ph/ShellBot-Cloning-Tutorial-08-22
+
+
 # How to deploy?
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)

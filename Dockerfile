@@ -25,7 +25,7 @@ RUN apt-get update && apt-get install -y software-properties-common && \
     mediainfo \
     # miscellaneous
     neofetch python3-dev git bash build-essential nodejs npm ruby \
-    python-minimal locales python-lxml qbittorrent-nox nginx gettext-base xz-utils \
+    python-minimal locales python-lxml nginx gettext-base xz-utils \
     # install extraction tools
     p7zip-full p7zip-rar rar unrar zip unzip \
     # miscellaneous helpers
@@ -46,11 +46,14 @@ ENV DEBIAN_FRONTEND noninteractive
 # sets the TimeZone, to be used inside the container
 ENV TZ Asia/Kolkata
 
-# rclone ,gclone and fclone
+# rclone and fclone
 RUN curl https://rclone.org/install.sh | bash && \
-    aria2c https://git.io/gclone.sh && bash gclone.sh && \
     aria2c https://github.com/mawaya/rclone/releases/download/fclone-v0.4.1/fclone-v0.4.1-linux-amd64.zip && \
     unzip fclone-v0.4.1-linux-amd64.zip && mv fclone-v0.4.1-linux-amd64/fclone /usr/bin/ && chmod +x /usr/bin/fclone && rm -r fclone-v0.4.1-linux-amd64
+
+# gclone v1.58.0-coffee
+RUN aria2c https://github.com/l3v11/gclone/releases/download/v1.58.0-coffee/gclone-v1.58.0-coffee-linux-amd64.zip && \
+    unzip gclone-v1.58.0-coffee-linux-amd64.zip && mv gclone-v1.58.0-coffee-linux-amd64/gclone /usr/bin && chmod +x /usr/bin/gclone && rm -r gclone-v1.58.0-coffee-linux-amd64
 
 #drive downloader
 RUN curl -L https://github.com/jaskaranSM/drivedlgo/releases/download/1.5/drivedlgo_1.5_Linux_x86_64.gz -o drivedl.gz && \
@@ -77,4 +80,4 @@ COPY default.conf.template /etc/nginx/conf.d/default.conf.template
 COPY nginx.conf /etc/nginx/nginx.conf
 RUN dpkg --add-architecture i386 && apt-get update && apt-get -y dist-upgrade
 
-CMD /bin/bash -c "envsubst '\$PORT' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf" && nginx -g 'daemon on;' &&  qbittorrent-nox -d --webui-port=8080 && cd /usr/src/app && mkdir Downloads && bash start.sh
+CMD /bin/bash -c "envsubst '\$PORT' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf" && nginx -g 'daemon on;' && cd /usr/src/app && mkdir Downloads && bash start.sh
